@@ -163,12 +163,10 @@ export default function Home() {
             <TextMorph>
               {frameworks[frameworkIndex % frameworks.length].entrypoint}
             </TextMorph>
-            {`'
 
-<TextMorph>`}
-
-            <TextMorph>{texts[textIndex % texts.length]}</TextMorph>
-            {`</TextMorph>`}
+            {`';
+            
+${populateExample(frameworks[frameworkIndex % frameworks.length].example, texts[textIndex % texts.length])}`}
           </CodeBlock>
         </div>
         <Footer />

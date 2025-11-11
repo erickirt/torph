@@ -1,7 +1,7 @@
 {
   "name": "torph",
   "version": "0.0.1",
-  "description": "An animated text component for React.",
+  "description": "Dependency-free animated text component.",
   "author": "Lochie Axon",
   "license": "MIT",
   "repository": {

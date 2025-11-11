@@ -1,6 +1,6 @@
 # Torph
 
-An animated text component for React.
+Dependency-free animated text component.
 
 ## Installation
 
@@ -11,7 +11,7 @@ pnpm i torph
 ## Usage
 
 ```tsx
-import { TextMorph } from "torph";
+import { TextMorph } from "torph/react";
 
 <TextMorph>Hello world</TextMorph>;
 ```

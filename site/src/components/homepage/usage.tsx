@@ -1,34 +1,24 @@
 export const examples = {
-  vanilla: `import { TextMorph } from 'torph';
-
-const textmorph = new TextMorph({
+  vanilla: `const textmorph = new TextMorph({
   element: document.getElementById('morph'),
-  {luke/jobs-api-integration
-    // options
-  }
+  // options
 });
 
 textmorph.update('{EXAMPLE_TEXT}');
 `,
-  react: `import { TextMorph } from 'torph/react';
-
-<TextMorph>{EXAMPLE_TEXT}</TextMorph>`,
+  react: `<TextMorph>{EXAMPLE_TEXT}</TextMorph>`,
   vue: `<template>
   <TextMorph>{EXAMPLE_TEXT}</TextMorph>
 </template>
 
 <script>
-import { TextMorph } from 'torph/vue';
 export default {
   components: {
     TextMorph
   }
 }
 </script>`,
-  svelte: `<script>
-  import { TextMorph } from 'torph/svelte';
-</script>
-
+  svelte: `
 <TextMorph>{EXAMPLE_TEXT}</TextMorph>`,
 };
 
