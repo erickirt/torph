@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import styles from "./styles.module.scss";
 import { TextMorph } from "torph/react";
+import { CodeBlock } from "../codeblock";
 
 const pkgCmds = {
   npm: "npm i torph",
@@ -24,11 +25,23 @@ export const InstallCommands = () => {
           </button>
         ))}
       </div>
-      <code>
-        <TextMorph>
-          {pkgCmds[Object.keys(pkgCmds)[cmdIndex] as keyof typeof pkgCmds]}
-        </TextMorph>
-      </code>
+      <div className={styles.cmd}>
+        <CodeBlock
+          code={pkgCmds[Object.keys(pkgCmds)[cmdIndex] as keyof typeof pkgCmds]}
+        >
+          <span
+            style={{
+              opacity: 0.4,
+              userSelect: "none",
+            }}
+          >
+            {"$ "}
+          </span>
+          <TextMorph>
+            {pkgCmds[Object.keys(pkgCmds)[cmdIndex] as keyof typeof pkgCmds]}
+          </TextMorph>
+        </CodeBlock>
+      </div>
     </div>
   );
 };

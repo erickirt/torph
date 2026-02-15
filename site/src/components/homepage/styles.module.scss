@@ -108,6 +108,12 @@
   justify-content: center;
   margin: -1rem 0 0;
 
+  .cmd {
+    width: 100%;
+    //max-width: 14rem;
+    //margin: 0 auto;
+  }
+
   .commands {
     display: flex;
     gap: 1rem;
