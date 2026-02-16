@@ -78,17 +78,19 @@ export const ExampleAction = () => {
 
   return (
     <div className={styles.action}>
-      <AnimatePresence initial={false} mode="popLayout">
-        <motion.div
-          key={currentStateIndex}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.3 }}
-        >
-          {states[currentStateIndex].icon}
-        </motion.div>
-      </AnimatePresence>
+      <motion.div layoutId="icon" layout="position">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentStateIndex}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+          >
+            {states[currentStateIndex].icon}
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
       <TextMorph>{states[currentStateIndex].label}</TextMorph>
     </div>
   );
