@@ -8,21 +8,21 @@ const typingSequence = [
   { value: "$", delay: 0 }, // Start typing
   { value: "$2", delay: 150 }, // Type 2
   { value: "$20", delay: 120 }, // Type 0
-  { value: "$20", delay: 800 }, // Pause to read
+  { value: "$20", delay: 1800 }, // Pause to read
   { value: "$", delay: 200 }, // Delete and start new
   { value: "$4", delay: 150 }, // Type 4
   { value: "$45", delay: 120 }, // Type 5
   { value: "$45.", delay: 180 }, // Type decimal
   { value: "$45.9", delay: 140 }, // Type 9
   { value: "$45.99", delay: 120 }, // Type 9
-  { value: "$45.99", delay: 800 }, // Pause to read
+  { value: "$45.99", delay: 1800 }, // Pause to read
   { value: "$", delay: 200 }, // Delete and start new
   { value: "$1", delay: 150 }, // Type 1
   { value: "$12", delay: 120 }, // Type 2
   { value: "$12.", delay: 180 }, // Type decimal
   { value: "$12.5", delay: 140 }, // Type 5
   { value: "$12.50", delay: 120 }, // Type 0
-  { value: "$12.50", delay: 700 }, // Final pause
+  { value: "$12.50", delay: 1700 }, // Final pause
 ];
 
 export const ExampleNumber = () => {
@@ -40,6 +40,7 @@ export const ExampleNumber = () => {
   return (
     <div className={styles.number}>
       <TextMorph>{typingSequence[currentIndex].value}</TextMorph>
+      <span className={styles.cursor} key={currentIndex} />
     </div>
   );
 };
