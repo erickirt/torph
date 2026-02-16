@@ -1,5 +1,11 @@
 # torph
 
+## 0.0.5
+
+### Patch Changes
+
+- update: made the animation better
+
 ## 0.0.4
 
 ### Patch Changes
