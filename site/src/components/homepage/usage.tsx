@@ -11,12 +11,8 @@ textmorph.update('{EXAMPLE_TEXT}');
   <TextMorph>{EXAMPLE_TEXT}</TextMorph>
 </template>
 
-<script>
-export default {
-  components: {
-    TextMorph
-  }
-}
+<script setup>
+  import { TextMorph } from "torph/vue";
 </script>`,
   svelte: `<TextMorph>{EXAMPLE_TEXT}</TextMorph>`,
 };
