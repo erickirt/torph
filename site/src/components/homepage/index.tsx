@@ -68,9 +68,10 @@ export default function Home() {
                   key={f.name}
                   disabled={frameworkIndex === i}
                   onClick={() => setFrameworkIndex(i)}
+                  aria-label={`View example for ${f.name}`}
                 >
-                  {f.logo}
-                  {f.name}
+                  <span className={styles.logo}>{f.logo}</span>
+                  <span className={styles.name}>{f.name}</span>
                 </Button>
               ))}
             </div>
