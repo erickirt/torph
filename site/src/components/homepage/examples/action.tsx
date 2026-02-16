@@ -6,7 +6,7 @@ import { TextMorph } from "torph/react";
 
 const states = [
   {
-    label: "Processing Action",
+    label: "Processing Transaction",
     icon: (
       <svg
         width="23"
@@ -36,7 +36,7 @@ const states = [
     ),
   },
   {
-    label: "Action Complete",
+    label: "Transaction Safe",
     icon: (
       <svg
         width="21"
@@ -66,6 +66,16 @@ const states = [
   },
 ];
 
+const transition = {
+  type: "spring" as const,
+  mass: 4,
+  stiffness: 800,
+  damping: 80,
+  restDelta: 0.0001,
+};
+const cssTransition =
+  "linear(0 0%, 0.00935 1%, 0.034933 2%, 0.073343 3%, 0.121559 4%, 0.176933 5%, 0.237164 6%, 0.300282 7%, 0.364621 8%, 0.428795 9%, 0.491674 10%, 0.552354 11%, 0.610135 12%, 0.664498 13%, 0.715078 14%, 0.761645 15%, 0.804085 16%, 0.842377 17%, 0.87658 18%, 0.906817 19%, 0.933259 20%, 0.956116 21%, 0.975624 22%, 0.992037 23%, 1.005618 24%, 1.016636 25%, 1.025356 26%, 1.032036 27%, 1.036926 28%, 1.040261 29%, 1.042263 30%, 1.043137 31%, 1.043072 32%, 1.04224 33%, 1.040793 34%, 1.038871 35%, 1.036594 36%, 1.034067 37%, 1.031382 38%, 1.028616 39%, 1.025833 40%, 1.023087 41%, 1.020422 42%, 1.017869 43%, 1.015456 44%, 1.013201 45%, 1.011116 46%, 1.009207 47%, 1.007478 48%, 1.005927 49%, 1.00455 50%, 1.00334 51%, 1.002289 52%, 1.001387 53%, 1.000624 54%, 0.999987 55%)";
+
 export const ExampleAction = () => {
   const [currentStateIndex, setCurrentStateIndex] = React.useState(0);
 
@@ -78,20 +88,33 @@ export const ExampleAction = () => {
 
   return (
     <div className={styles.action}>
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={currentStateIndex}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.3 }}
-        >
-          {states[currentStateIndex].icon}
-        </motion.div>
-      </AnimatePresence>
-      <TextMorph duration={400} ease="ease">
-        {states[currentStateIndex].label}
-      </TextMorph>
+      <div className={styles.iconWrapper}>
+        <AnimatePresence>
+          <motion.div
+            key={currentStateIndex}
+            className={styles.icon}
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{
+              opacity: 0,
+              scale: 0.6,
+              transition: transition,
+            }}
+            transition={{
+              delay: 0.1,
+              ...transition,
+            }}
+          >
+            {states[currentStateIndex].icon}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className={styles.label}>
+        <TextMorph duration={600} ease={`cubic-bezier(0.41, 1.03, 0.6, 1.03)`}>
+          {states[currentStateIndex].label}
+        </TextMorph>
+      </div>
     </div>
   );
 };
