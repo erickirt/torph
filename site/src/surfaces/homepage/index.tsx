@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./styles.module.scss";
 
 import { useState } from "react";
@@ -5,13 +7,13 @@ import { useWebHaptics } from "web-haptics/react";
 
 import { TextMorph } from "torph/react";
 
-import { Footer } from "../footer";
-import { CodeBlock } from "../codeblock";
+import { Footer } from "@/components/footer";
+import { CodeBlock } from "@/components/codeblock";
 import { InstallCommands } from "./install-cmd";
 import { examples, populateExample } from "./usage";
 import * as Logos from "./logos";
 import { Examples } from "./examples";
-import { Button } from "../button";
+import { Button } from "@/components/button";
 
 const frameworks = [
   {
@@ -40,7 +42,7 @@ const frameworks = [
   },
 ];
 
-export default function Home() {
+export const Homepage = () => {
   const text = "Hello world";
   const [frameworkIndex, setFrameworkIndex] = useState(0);
   const { trigger } = useWebHaptics();
@@ -69,7 +71,10 @@ export default function Home() {
                 <Button
                   key={f.name}
                   disabled={frameworkIndex === i}
-                  onClick={() => { trigger("selection"); setFrameworkIndex(i); }}
+                  onClick={() => {
+                    trigger("selection");
+                    setFrameworkIndex(i);
+                  }}
                   aria-label={`View example for ${f.name}`}
                 >
                   <span className={styles.logo}>{f.logo}</span>
@@ -100,4 +105,4 @@ ${populateExample(frameworks[frameworkIndex % frameworks.length].example, text)}
       </div>
     </div>
   );
-}
+};

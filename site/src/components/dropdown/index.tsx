@@ -3,7 +3,7 @@ import { useWebHaptics } from "web-haptics/react";
 
 import styles from "./styles.module.scss";
 import { AnimatePresence, motion } from "motion/react";
-import { useClickOutside } from "../../hooks/useClickOutside";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 export const Dropdown = ({
   children,
@@ -24,7 +24,14 @@ export const Dropdown = ({
 
   return (
     <div ref={ref} className={styles.container}>
-      <button onClick={() => { trigger("light"); setOpen(!open); }} className={styles.trigger}>
+      <button
+        type="button"
+        onClick={() => {
+          trigger("light");
+          setOpen(!open);
+        }}
+        className={styles.trigger}
+      >
         {children}
         <motion.svg
           width="16"
@@ -60,6 +67,7 @@ export const Dropdown = ({
               {options.map((option, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => {
                     trigger("light");
                     option.onClick();

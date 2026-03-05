@@ -51,9 +51,9 @@ export function useTextMorph(props: Omit<TextMorphOptions, "element">) {
     };
   }, []);
 
-  const update = (text: string) => {
+  const update = React.useCallback((text: string) => {
     morphRef.current?.update(text);
-  };
+  }, []);
 
   return { ref, update };
 }
