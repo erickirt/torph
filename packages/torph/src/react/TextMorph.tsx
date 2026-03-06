@@ -55,7 +55,7 @@ export const TextMorph = ({
 };
 
 export function useTextMorph(props: Omit<TextMorphOptions, "element">) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
+  const ref = React.useRef<HTMLElement | null>(null);
   const controllerRef = React.useRef(new MorphController());
 
   const configKey = MorphController.serializeConfig(props);

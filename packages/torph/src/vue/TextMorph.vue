@@ -12,9 +12,16 @@ import { ref, computed, onUnmounted, watch } from "vue";
 import {
   DEFAULT_AS,
   DEFAULT_TEXT_MORPH_OPTIONS,
-} from "../lib/text-morph";
-import { MorphController } from "../lib/text-morph/controller";
-import type { TextMorphProps } from "./types";
+  MorphController,
+} from "torph";
+import type { TextMorphOptions } from "torph";
+
+interface TextMorphProps extends Omit<TextMorphOptions, "element"> {
+  text: string;
+  class?: string;
+  style?: Record<string, string | number>;
+  as?: string;
+}
 
 const props = withDefaults(defineProps<TextMorphProps>(), {
   locale: DEFAULT_TEXT_MORPH_OPTIONS.locale,

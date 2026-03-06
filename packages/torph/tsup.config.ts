@@ -36,7 +36,7 @@ export default defineConfig((options) => {
       dts: false,
       target: "es2022",
       treeshake: true,
-      external: ["vue", "../lib/text-morph"],
+      external: ["vue", "torph"],
       minify: !options.watch,
       loader: {
         ".vue": "copy",
@@ -62,7 +62,7 @@ export default defineConfig((options) => {
       dts: false,
       target: "es2022",
       treeshake: true,
-      external: ["svelte", "../lib/text-morph"],
+      external: ["svelte", "torph"],
       minify: !options.watch,
       loader: {
         ".svelte": "copy",
