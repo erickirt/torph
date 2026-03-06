@@ -27,31 +27,17 @@ export default defineConfig((options) => {
       minify: !options.watch,
       banner: { js: '"use client";' },
     },
-    // Vue - JS build
+    // Vue
     {
       entry: {
         "vue/index": "src/vue/index.ts",
       },
       format: ["cjs", "esm"],
-      dts: false,
+      dts: true,
       target: "es2022",
       treeshake: true,
-      external: ["vue", "torph"],
-      minify: !options.watch,
-      loader: {
-        ".vue": "copy",
-      },
-    },
-    // Vue - DTS build (from types.ts only)
-    {
-      entry: {
-        "vue/index": "src/vue/types.ts",
-      },
-      format: ["cjs", "esm"],
-      dts: {
-        only: true,
-      },
       external: ["vue"],
+      minify: !options.watch,
     },
     // Svelte - JS build
     {

@@ -1,3 +1,3 @@
-export { default as TextMorph } from "./TextMorph.vue";
+export { default as TextMorph } from "./TextMorph";
 export type { TextMorphProps } from "./types";
 
