@@ -14,14 +14,7 @@ import {
   DEFAULT_TEXT_MORPH_OPTIONS,
   MorphController,
 } from "torph";
-import type { TextMorphOptions } from "torph";
-
-interface TextMorphProps extends Omit<TextMorphOptions, "element"> {
-  text: string;
-  class?: string;
-  style?: Record<string, string | number>;
-  as?: string;
-}
+import type { TextMorphProps } from "./types";
 
 const props = withDefaults(defineProps<TextMorphProps>(), {
   locale: DEFAULT_TEXT_MORPH_OPTIONS.locale,
