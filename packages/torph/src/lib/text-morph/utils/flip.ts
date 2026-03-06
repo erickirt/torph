@@ -7,13 +7,15 @@ export type Measures = {
 export function measure(element: HTMLElement): Measures {
   const children = Array.from(element.children) as HTMLElement[];
   const measures: Measures = {};
+  const parentRect = element.getBoundingClientRect();
 
   children.forEach((child, index) => {
     if (child.hasAttribute(ATTR_EXITING)) return;
     const key = child.getAttribute(ATTR_ID) || `child-${index}`;
+    const childRect = child.getBoundingClientRect();
     measures[key] = {
-      x: child.offsetLeft,
-      y: child.offsetTop,
+      x: childRect.left - parentRect.left,
+      y: childRect.top - parentRect.top,
     };
   });
 
