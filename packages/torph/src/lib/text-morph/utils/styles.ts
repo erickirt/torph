@@ -11,6 +11,7 @@ const TORPH_CSS = `
   will-change: width, height;
   transition-property: width, height;
   white-space: nowrap;
+  text-align: left;
 }
 
 [${ATTR_ITEM}] {
